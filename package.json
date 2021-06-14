@@ -1,0 +1,19 @@
+{
+  "name": "challenge-backend---nodejs",
+  "version": "1.0.0",
+  "description": "challenge ALKEMY",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdriAlt/CHALLENGE-BACKEND---NodeJs.git"
+  },
+  "author": "Adri Altamirano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdriAlt/CHALLENGE-BACKEND---NodeJs/issues"
+  },
+  "homepage": "https://github.com/AdriAlt/CHALLENGE-BACKEND---NodeJs#readme"
+}
