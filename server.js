@@ -1,14 +1,13 @@
 const express = require('express');
 const chalk = require('chalk');
 
-// const conectarDB = require('./config/db');
 const cors = require('cors');
 
 // crear el servidor
 const app = express();
 
 // Conectar a la base de datos
-const db = require("");
+const db = require("./models/index");
 db.sequelize.sync();
 
 // habilitar cors
@@ -25,10 +24,9 @@ app.get("/", (req, res) => {
   res.send("Hola mundo")
 })
 
-
 // Importar rutas
-app.use('/api/usuario', require("./api/routes/usuario.routes"));
-
+app.use("/auth/register", require("./routes/authRoutes"));
+app.use("/auth/login", require("./routes/authRoutes"));
 
 //arrancar la app
 app.listen(PORT, '0.0.0.0', () => {
