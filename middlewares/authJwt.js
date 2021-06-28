@@ -7,8 +7,6 @@ module.exports = function(req, res, next) {
     // Leer el token del header
     const token = req.header('x-auth-token');
 
-    //console.log(token)
-
     // Revisar si no hay token
     if(!token) {
         return res.status(400).json({msg: 'No hay token, permiso no válido' })
@@ -16,11 +14,10 @@ module.exports = function(req, res, next) {
 
     // validar el token
     try {
-        const usuario = req.body.userName;
-        const cifrado = jwt.verify(token, process.env.SECRETA);
-        cifrado.usuario.dataValues.userName; // si esta correcto como parte del request
+        jwt.verify(token, 'SECRETA');
         next()
     } catch (error) {
+        console.log('error', error)
         res.status(401).json({msg: 'Token no válido'})
     }
 }

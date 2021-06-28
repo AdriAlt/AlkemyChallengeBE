@@ -6,12 +6,21 @@ const authJwt = require("../middlewares/authJwt")
 
 // crear un personaje
 router.post("/",
+    authJwt,
     characterController.createPersonaje
 );
 
 router.get("/",
-    //authJwt,
+    authJwt,
     characterController.getPersonaje
+);
+router.put("/:id",
+    authJwt,
+    characterController.putPersonaje
+);
+router.delete("/:id",
+    authJwt,
+    characterController.deletePersonaje
 );
 
 

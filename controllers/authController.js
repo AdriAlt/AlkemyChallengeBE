@@ -26,8 +26,11 @@ exports.loginUsuario = async (req, res) => {
        if (!usuario) { return res.status(404).json({ msg: "El usuario no existe"});}
 
         console.log("usu", usuario.dataValues)
+        const payload = {
+            usuario: { id: usuario.dataValues.id }
+        };
   
-        let token = jwt.sign({ id: usuario.dataValues.id }, "SECRETA", {
+        let token = jwt.sign(payload, "SECRETA", {
             expiresIn: 3600000 // esto son segundos 1hr
         })
         res.status(200).json({
