@@ -6,11 +6,11 @@ const { check } = require("express-validator");
 const authJwt = require("../middlewares/authJwt")
 
 // crear un usuario
-router.post("/",
+router.post("/register",
     authController.registerUsuario
 );
 // login
-router.get("/",
+router.get("/login",
     //authJwt,
     authController.loginUsuario
 );

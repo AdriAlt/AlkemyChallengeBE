@@ -25,8 +25,8 @@ app.get("/", (req, res) => {
 })
 
 // Importar rutas
-app.use("/auth/register", require("./routes/authRoutes"));
-app.use("/auth/login", require("./routes/authRoutes"));
+app.use("/auth", require("./routes/authRoutes"));
+app.use("/characters", require("./routes/charactersRoutes"));
 
 //arrancar la app
 app.listen(PORT, '0.0.0.0', () => {
