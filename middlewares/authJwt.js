@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 
 module.exports = function(req, res, next) {
-        const usuario = req.body.userName;
 
     // Leer el token del header
     const token = req.header('x-auth-token');
@@ -11,7 +10,6 @@ module.exports = function(req, res, next) {
     if(!token) {
         return res.status(400).json({msg: 'No hay token, permiso no válido' })
     }
-
     // validar el token
     try {
         jwt.verify(token, 'SECRETA');

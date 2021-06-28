@@ -29,8 +29,8 @@ exports.putPersonaje = async (req, res) => {
     try {
         const { image, name, age, weight, history } = req.body;
 
-        let personajes = await Personajes.update({ image: image, name: name, age: new Date(age), weight: weight, history: history}, {where: {id: req.params.id}});
-        res.send("personaje modificado okey")
+        await Personajes.update({ image: image, name: name, age: new Date(age), weight: weight, history: history}, {where: {id: req.params.id}});
+        res.send({msg: "Personaje modificado de forma correcta"})
 
     } catch (error) {
         console.log("personaje", error)

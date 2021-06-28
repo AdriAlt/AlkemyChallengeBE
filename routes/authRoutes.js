@@ -2,8 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const authController = require("../controllers/authController");
-const { check } = require("express-validator");
-const authJwt = require("../middlewares/authJwt")
 
 // crear un usuario
 router.post("/register",
@@ -11,8 +9,10 @@ router.post("/register",
 );
 // login
 router.get("/login",
-    //authJwt,
     authController.loginUsuario
+);
+router.delete("/:id",
+    authController.deleteUsuario
 );
 
 
